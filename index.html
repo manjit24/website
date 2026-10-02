@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manjit Singh — OBS Expert &amp; Live-Stream Producer</title>
+<meta name="description" content="Top Rated OBS expert and video producer in Pune, India. Live streams, webinars and virtual events on OBS, vMix and VDO.Ninja, plus editing in DaVinci Resolve.">
+<meta property="og:title" content="Manjit Singh — OBS Expert &amp; Live-Stream Producer">
+<meta property="og:description" content="Live streams, webinars and virtual events on OBS, vMix and VDO.Ninja — set up, run and kept on air.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0b0d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23ff453a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+  :root {
+    --bg: #0a0b0d; --panel: #111317; --line: #24272d;
+    --text: #ecebe7; --soft: #c5c4bf; --muted: #9b9ea6;
+    --red: #ff453a; --green: #32d74b;
+    --sans: "Barlow", system-ui, sans-serif;
+    --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 400 1.0625rem/1.6 var(--sans); }
+  ::selection { background: var(--red); color: var(--bg); }
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 2px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; text-transform: uppercase; line-height: 1; margin: 0; }
+  .wrap { width: min(1120px, 100% - 2rem); margin-inline: auto; }
+
+  /* SMPTE colour bars */
+  .bars { height: 6px; background: linear-gradient(90deg, #c0c0c0 0 14.29%, #c0c000 0 28.57%, #00c0c0 0 42.86%, #00c000 0 57.14%, #c000c0 0 71.43%, #c00000 0 85.71%, #0000c0 0); }
+
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 1.25rem; }
+  .brand { font: 700 1.35rem/1 var(--display); text-transform: uppercase; letter-spacing: .04em; text-decoration: none; }
+  .top nav { display: flex; gap: 1.25rem; font-size: .95rem; }
+  .top nav a { color: var(--muted); text-decoration: none; }
+  .top nav a:hover { color: var(--text); }
+
+  section { padding-block: clamp(2.25rem, 5vw, 3.75rem); }
+  .hero { padding-block: clamp(3.5rem, 11vw, 8rem) clamp(2.5rem, 7vw, 4.5rem); }
+  .tally { display: inline-flex; align-items: center; gap: .6rem; margin: 0 0 1.75rem; padding: .45rem .85rem; border: 1px solid var(--line); border-radius: 999px; font: 500 .8rem/1 var(--mono); letter-spacing: .08em; color: var(--muted); }
+  .tally b { color: var(--red); font-weight: 600; }
+  .lamp { width: .6rem; height: .6rem; border-radius: 50%; background: var(--red); box-shadow: 0 0 10px var(--red); }
+  #tc { font-variant-numeric: tabular-nums; color: var(--text); }
+  .hero h1 { font-size: clamp(2.9rem, 9vw, 6.75rem); line-height: .92; max-width: 15ch; text-wrap: balance; }
+  .hero h1 em { font-style: normal; color: var(--red); }
+  .lede { max-width: 60ch; margin: 1.75rem 0 0; font-size: clamp(1.075rem, 1.6vw, 1.25rem); color: var(--soft); }
+  .cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.25rem; }
+  .btn { display: inline-block; padding: .85rem 1.4rem; border-radius: 4px; background: var(--red); color: var(--bg); font: 700 1.05rem/1 var(--display); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; transition: filter .15s, transform .1s; }
+  .btn:hover { filter: brightness(1.12); }
+  .btn:active { transform: scale(.97); }
+  .btn.ghost { background: none; color: var(--text); box-shadow: inset 0 0 0 1px var(--line); }
+  .btn.ghost:hover { box-shadow: inset 0 0 0 1px var(--muted); filter: none; }
+
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin: 3.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+  @media (min-width: 700px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+  .stats div { display: flex; flex-direction: column-reverse; gap: .4rem; }
+  .stats dd { margin: 0; font: 700 clamp(1.9rem, 4vw, 2.6rem)/1 var(--display); text-transform: uppercase; }
+  .stats dt, .tag, .stars { font: 500 .72rem/1.2 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+  .slug { display: flex; align-items: center; gap: .9rem; font-size: clamp(1.9rem, 4.5vw, 2.75rem); margin-bottom: 2.25rem; }
+  .slug span { font: 500 .8rem/1 var(--mono); letter-spacing: .08em; color: var(--red); }
+  .slug::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 1rem; }
+  .services { gap: 2.25rem 2rem; }
+  .service { border-top: 1px solid var(--line); padding-top: 1.1rem; }
+  .service h3 { font-size: 1.5rem; margin-bottom: .5rem; }
+  .service p { margin: 0; color: var(--muted); }
+
+  .project + .project { margin-top: clamp(3rem, 7vw, 4.5rem); padding-top: clamp(3rem, 7vw, 4.5rem); border-top: 1px solid var(--line); }
+  .project .tag { margin: 0; }
+  .tag a { color: var(--text); text-decoration: none; }
+  .tag a:hover { color: var(--red); }
+  .project h3 { margin: .8rem 0 1rem; font-size: clamp(1.8rem, 4vw, 2.6rem); max-width: 24ch; text-wrap: balance; }
+  .desc { max-width: 68ch; margin: 0; color: var(--soft); }
+  .project .stats { margin-top: 2rem; }
+  .project .chips { margin-top: 2rem; }
+  /* screenshots: one big frame spanning two rows beside two stacked ones; click opens full size */
+  .shots { display: grid; grid-template-columns: 2fr 1fr; gap: .75rem; margin-top: 2rem; }
+  .shots.dual { grid-template-columns: 1.58fr 1fr; } /* two 16:9 frames stacked beside one 9:16 */
+  .shots img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
+  .shots .tall { grid-row: span 2; contain: size; }
+  .shots .tall img { height: 100%; object-fit: cover; }
+  .dual .tall { grid-area: 1 / 2 / 3; }
+  @media (max-width: 699px) {
+    .shots, .shots.dual { grid-template-columns: 1fr; }
+    .shots .tall { grid-area: auto; contain: none; }
+    .dual .tall { width: 60%; justify-self: center; }
+  }
+
+  .video { position: relative; display: block; max-width: 880px; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .video img, .video iframe { display: block; width: 100%; height: 100%; border: 0; object-fit: cover; }
+  .video[href]::after { content: ""; position: absolute; inset: 0; margin: auto; width: 72px; height: 50px; border-radius: 12px; background: var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%230a0b0d'/%3E%3C/svg%3E") center / 26px no-repeat; transition: transform .15s; }
+  .video[href]:hover::after { transform: scale(1.08); }
+
+  .reviews { grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
+  .review { display: flex; flex-direction: column; gap: 1.1rem; margin: 0; padding: clamp(1.35rem, 3vw, 2rem); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; }
+  .stars { margin: 0; }
+  .stars span { margin-right: .5rem; font-size: 1rem; letter-spacing: .12em; color: var(--red); }
+  .review blockquote { margin: 0; font-size: clamp(1.1rem, 1.7vw, 1.3rem); line-height: 1.5; }
+  .review blockquote em { font-style: normal; color: var(--red); }
+  .feature { grid-column: 1 / -1; }
+  .feature blockquote { font-size: clamp(1.3rem, 2.6vw, 1.9rem); line-height: 1.35; }
+  .review figcaption { display: grid; gap: .4rem; margin-top: auto; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+  .who { font: 700 1.35rem/1 var(--display); letter-spacing: .02em; text-transform: uppercase; text-decoration: none; }
+  .who:hover { color: var(--red); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+  .chips li { padding: .5rem .85rem; border: 1px solid var(--line); border-radius: 999px; font: 500 .85rem/1 var(--mono); color: var(--soft); }
+
+  .big { font: 700 clamp(2.4rem, 7vw, 5rem)/.95 var(--display); text-transform: uppercase; margin: 0 0 1.25rem; max-width: 16ch; text-wrap: balance; }
+  .contact p:not(.big) { color: var(--soft); }
+  .mail { font-family: var(--mono); font-size: .95rem; }
+
+  .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-block: 2rem 2.5rem; border-top: 1px solid var(--line); font: 500 .78rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .ok::before { content: ""; display: inline-block; width: .5rem; height: .5rem; margin-right: .5rem; border-radius: 50%; background: var(--green); }
+</style>
+</head>
+<body>
+<div class="bars" aria-hidden="true"></div>
+
+<header class="wrap top">
+  <a class="brand" href="#">Manjit Singh</a>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <p class="tally" aria-hidden="true"><span class="lamp"></span><b>ON AIR</b><span>PUNE</span><span id="tc">--:--:--:--</span></p>
+    <h1>I keep your live shows <em>on air.</em></h1>
+    <p class="lede">I'm Manjit Singh, an OBS expert and live-stream producer in Pune, India. I set up and run live streams, webinars and virtual events on OBS, vMix and VDO.Ninja, edit in DaVinci Resolve — and when stock software can't do the job, I build the tool that can.</p>
+    <div class="cta">
+      <a class="btn" href="#contact">Start a project</a>
+      <a class="btn ghost" href="#work">See my work</a>
+    </div>
+    <dl class="stats">
+      <div><dt>Job success</dt><dd>100%</dd></div>
+      <div><dt>On Upwork</dt><dd>Top Rated</dd></div>
+      <div><dt>Upwork jobs</dt><dd>50+</dd></div>
+      <div><dt>Hours logged</dt><dd>480+</dd></div>
+    </dl>
+  </section>
+
+  <section id="intro" class="wrap">
+    <h2 class="slug"><span aria-hidden="true">01</span>Meet me</h2>
+    <a class="video" href="https://www.youtube.com/watch?v=QYZiEnlWCDw" target="_blank" rel="noopener" data-yt="QYZiEnlWCDw" aria-label="Play my intro video">
+      <img src="https://i.ytimg.com/vi/QYZiEnlWCDw/maxresdefault.jpg" width="1280" height="720" loading="lazy" alt="">
+    </a>
+  </section>
+
+  <section id="services" class="wrap">
+    <h2 class="slug"><span aria-hidden="true">02</span>What I do</h2>
+    <div class="grid services">
+      <div class="service"><h3>Live streams &amp; events</h3><p>Webinars, panel discussions, live streams and virtual events, run end to end: tech checks, rehearsals and a smooth on-air show.</p></div>
+      <div class="service"><h3>Studio setup</h3><p>A streamlined rig for your cameras, mics and software — OBS, vMix, Zoom, Riverside.fm, Voicemeeter — that opens ready to go live.</p></div>
+      <div class="service"><h3>Remote guests</h3><p>Guests join from a link through VDO.Ninja or Riverside.fm, and arrive on screen clean, in sync and under your control.</p></div>
+      <div class="service"><h3>Recording &amp; editing</h3><p>Multi-source recording workflows and editing in DaVinci Resolve, cut for YouTube, TikTok and the rest of your socials.</p></div>
+      <div class="service"><h3>Audience &amp; chat</h3><p>Q&amp;A handling and chat moderation while you're live, so you can focus on your guests and your audience.</p></div>
+      <div class="service"><h3>Custom tools</h3><p>When stock software can't do it: OBS plugins, live-data overlays and one-button control decks with Bitfocus Companion.</p></div>
+    </div>
+  </section>
+
+  <section id="work" class="wrap">
+    <h2 class="slug"><span aria-hidden="true">03</span>Featured work</h2>
+
+    <article class="project">
+      <p class="tag"><a href="https://www.youtube.com/@TradeifyTV" target="_blank" rel="noopener">Tradeify TV ↗</a> · YouTube · Setup design &amp; build</p>
+      <h3>Stream &amp; record YouTube group shows with custom layouts</h3>
+      <p class="desc">I designed and built a pro live-streaming setup for Tradeify TV's six-person YouTube show, using OBS and VDO.Ninja. It has 100+ custom scene layouts for every mix of guests and screen shares, and runs from a Stream Deck — by a producer, or solo. It supports 4K 60 fps streaming with simultaneous recording, and keeps separate audio and video tracks for every guest for smooth post-production. Reliable, scalable, and built so a complex live show takes minimal technical effort during production.</p>
+      <dl class="stats">
+        <div><dt>People on the show</dt><dd>6</dd></div>
+        <div><dt>Scene layouts</dt><dd>100+</dd></div>
+        <div><dt>Stream + record</dt><dd>4K60</dd></div>
+        <div><dt>Tracks per guest</dt><dd>ISO</dd></div>
+      </dl>
+      <div class="shots">
+        <a class="tall" href="tradeify-screenshare.webp" target="_blank"><img src="tradeify-screenshare.webp" width="1280" height="720" loading="lazy" alt="Opening Bell Battle: a host's trading screen share beside a column of four hosts, with each host's live P&amp;L in the header and a news ticker below"></a>
+        <a href="tradeify-grid.webp" target="_blank"><img src="tradeify-grid.webp" width="1280" height="720" loading="lazy" alt="Market Wake Up: four hosts in a two-by-two grid under the show header"></a>
+        <a href="tradeify-host.webp" target="_blank"><img src="tradeify-host.webp" width="1280" height="720" loading="lazy" alt="Midday Wrap Up: one host full-size with two co-hosts stacked on the right"></a>
+      </div>
+      <ul class="chips">
+        <li>OBS Studio</li><li>Streaming platform</li><li>Streaming graphics design</li><li>Audio recording</li><li>Multitrack recording</li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <p class="tag">Whatnot + YouTube · Live producer &amp; preset creator</p>
+      <h3>Vertical + horizontal OBS streaming &amp; recording preset</h3>
+      <p class="desc">I built a custom OBS preset that streams to Whatnot (vertical) and YouTube (horizontal) at the same time, with up to four guests joining through VDO.Ninja. It records both formats plus isolated video and audio for every guest, and adds interactive memes and a soundboard. All processing, background removal included, runs on the producer's computer to keep the load off guests' machines. I also produced the show live, managing the full stream across both platforms from setup to execution.</p>
+      <dl class="stats">
+        <div><dt>Vertical · Whatnot</dt><dd>9:16</dd></div>
+        <div><dt>Horizontal · YouTube</dt><dd>16:9</dd></div>
+        <div><dt>Remote guests</dt><dd>4</dd></div>
+        <div><dt>Tracks per guest</dt><dd>ISO</dd></div>
+      </dl>
+      <div class="shots dual">
+        <a href="youtube-grid.webp" target="_blank"><img src="youtube-grid.webp" width="1920" height="1080" loading="lazy" alt="Horizontal YouTube output: four guests in a two-by-two grid over the show's branded street backdrop"></a>
+        <a href="youtube-row.webp" target="_blank"><img src="youtube-row.webp" width="1920" height="1080" loading="lazy" alt="Horizontal output: three guests side by side under a scrolling sponsor ticker"></a>
+        <a class="tall" href="whatnot-vertical.webp" target="_blank"><img src="whatnot-vertical.webp" width="1080" height="1920" loading="lazy" alt="Vertical Whatnot output: three guests stacked, with a live tip alert popping up"></a>
+      </div>
+      <ul class="chips">
+        <li>Video production</li><li>Live performance</li><li>Podcast</li><li>Hosting online meetings</li><li>Live streaming setup</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="reviews" class="wrap">
+    <h2 class="slug"><span aria-hidden="true">04</span>What clients say</h2>
+    <div class="grid reviews">
+      <figure class="review feature">
+        <p class="stars"><span aria-hidden="true">★★★★★</span>5.0 on Upwork</p>
+        <blockquote>“<em>Best vMix guy on the entire Upwork platform.</em> A true gem and always there for me … he will continue to be my ‘go-to guy’ for my broadcast platform. Amazing, thank you Manjit.”</blockquote>
+        <figcaption>
+          <a class="who" href="https://oceanaudit.com/" target="_blank" rel="noopener">Steve Ferreira <span aria-hidden="true">↗</span></a>
+          <span class="tag">Ocean Audit · vMix update &amp; install</span>
+        </figcaption>
+      </figure>
+      <figure class="review">
+        <p class="stars"><span aria-hidden="true">★★★★★</span>5.0 on Upwork</p>
+        <blockquote>“This man is the truth. He watched how I was doing my live stream and put together a workflow that <em>cut 90% of time off of my setup and production</em>. It used to take me 2 hours to set up for each show; now it literally only takes me 10–15 mins … You would be a fool not to hire this man to cut your workflow.”</blockquote>
+        <figcaption>
+          <a class="who" href="https://www.youtube.com/@uniquemeccaaudionyc" target="_blank" rel="noopener">Unique Mecca Audio <span aria-hidden="true">↗</span></a>
+          <span class="tag">YouTube · OBS preset design for a multi-guest live event</span>
+        </figcaption>
+      </figure>
+      <figure class="review">
+        <p class="stars"><span aria-hidden="true">★★★★★</span>5.0 on Upwork</p>
+        <blockquote>“Manjit went above and beyond to help us get our project done. Vastly knowledgeable with OBS and setting up what we needed to run <em>our full daily production show</em>. Check TradeifyTV on YouTube to help see the scenes and layouts/transitions he helped us with. Will be working together again!”</blockquote>
+        <figcaption>
+          <a class="who" href="https://www.youtube.com/@TradeifyTV" target="_blank" rel="noopener">Tradeify TV <span aria-hidden="true">↗</span></a>
+          <span class="tag">YouTube · OBS 6-guest, 1-screen streaming setup</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2 class="slug"><span aria-hidden="true">05</span>Toolbox</h2>
+    <ul class="chips">
+      <li>OBS Studio</li><li>vMix</li><li>VDO.Ninja</li><li>Zoom</li><li>Riverside.fm</li><li>Voicemeeter</li><li>DaVinci Resolve</li><li>Bitfocus Companion</li><li>NDI</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="wrap contact">
+    <h2 class="slug"><span aria-hidden="true">06</span>Contact</h2>
+    <p class="big">Got a live show coming up?</p>
+    <p>Tell me what you're streaming, and when.</p>
+    <div class="cta">
+      <a class="btn" href="mailto:tuskjeet@gmail.com">Email me</a>
+      <a class="btn ghost" href="Manjit-Singh-Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+    </div>
+    <p class="mail">tuskjeet@gmail.com</p>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <span>© Manjit Singh</span>
+  <span class="ok">Signal OK</span>
+</footer>
+
+<script>
+  // Hero timecode: Pune time (IST, UTC+5:30, no DST) as HH:MM:SS:FF at 25 fps.
+  const tc = document.getElementById("tc"), p = n => String(n).padStart(2, "0");
+  (function tick() {
+    const d = new Date(Date.now() + 19800e3);
+    tc.textContent = `${p(d.getUTCHours())}:${p(d.getUTCMinutes())}:${p(d.getUTCSeconds())}:${p(d.getUTCMilliseconds() / 40 | 0)}`;
+    requestAnimationFrame(tick);
+  })();
+
+  // Intro video: thumbnail until clicked, then the player. YouTube refuses embeds that send no
+  // referrer (Error 153), so a page opened from file:// just follows the link to YouTube instead.
+  const intro = document.querySelector("a.video");
+  intro.addEventListener("click", e => {
+    if (!location.protocol.startsWith("http")) return;
+    e.preventDefault();
+    intro.outerHTML = `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${intro.dataset.yt}?autoplay=1&rel=0" title="Manjit Singh — intro video" allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`;
+  });
+</script>
+</body>
+</html>
