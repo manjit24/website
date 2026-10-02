@@ -41,10 +41,13 @@
   .bars { height: 6px; background: linear-gradient(90deg, #c0c0c0 0 14.29%, #c0c000 0 28.57%, #00c0c0 0 42.86%, #00c000 0 57.14%, #c000c0 0 71.43%, #c00000 0 85.71%, #0000c0 0); }
 
   .top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: 1.25rem; }
-  .brand { display: flex; align-items: center; gap: .6rem; font: 700 1.35rem/1 var(--display); text-transform: uppercase; letter-spacing: .04em; text-decoration: none; }
+  .brand { display: flex; align-items: center; gap: .6rem; font: 700 1.45rem/1 var(--display); letter-spacing: .01em; text-decoration: none; }
+  .brand i { font-style: normal; color: #1fb8d3; } /* logo teal */
+  .brand b { color: #ff6a1a; } /* logo orange */
+  .top { flex-wrap: wrap; }
   .mark { width: 2rem; height: 2rem; border-radius: 7px; } /* logo has its own white background, shown as an app-icon tile */
   .top nav { display: flex; gap: 1.25rem; font-size: .95rem; }
-  @media (max-width: 420px) { .brand { font-size: 1.1rem; gap: .45rem; } .top nav { gap: .9rem; } }
+  @media (max-width: 420px) { .brand { font-size: 1.25rem; gap: .45rem; } .top nav { gap: .9rem; } }
   .top nav a { color: var(--muted); text-decoration: none; }
   .top nav a:hover { color: var(--text); }
 
@@ -135,7 +138,7 @@
 <div class="bars" aria-hidden="true"></div>
 
 <header class="wrap top">
-  <a class="brand" href="#"><img class="mark" src="logo-mark.png" width="192" height="192" alt="Pixel Perfect Studio logo">Manjit Singh</a>
+  <a class="brand" href="#"><img class="mark" src="logo-mark.png" width="192" height="192" alt=""><span>Pixel<i>Perfect</i>Studio<b>.live</b></span></a>
   <nav>
     <a href="#work">Work</a>
     <a href="#reviews">Reviews</a>
