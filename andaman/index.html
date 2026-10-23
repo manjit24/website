@@ -463,6 +463,26 @@ body.search-open{overflow:hidden}
   .search-box{max-width:none;max-height:none;height:100%;border:0;border-radius:0;padding-top:env(safe-area-inset-top,0px)}
   .search-btn kbd{display:none}
 }
+
+/* up next */
+.upnext{margin-top:18px;max-width:760px;background:var(--surface);border:1px solid color-mix(in oklab,var(--accent) 45%,var(--line));border-radius:12px;box-shadow:var(--shadow);padding:14px 16px 12px}
+.un-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.un-tag{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.un-tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);animation:un-pulse 2s ease-in-out infinite}
+@keyframes un-pulse{50%{opacity:.25}}
+.un-rel{font:600 13px/1 var(--mono);color:var(--ink);background:var(--surface-2);border-radius:99px;padding:6px 10px}
+.un-when{margin-top:10px;font:700 24px/1.1 var(--display);letter-spacing:.01em}
+.un-when span{color:var(--ink-3);font-weight:600}
+.un-text{margin-top:4px;font-size:16px;color:var(--ink)}
+.un-then{list-style:none;margin:12px 0 0;padding:10px 0 0;border-top:1px dashed var(--line);display:grid;gap:4px}
+.un-then button{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;width:100%;text-align:left;background:none;border:0;padding:4px 0;font:inherit;font-size:14px;color:var(--ink-2);cursor:pointer}
+.un-then button:hover{color:var(--ink)}
+.un-then time{font:500 13px/1.45 var(--mono);color:var(--ink-3);white-space:nowrap}
+.un-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.un-go,.un-todo{font:600 14px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:10px 12px;cursor:pointer;text-decoration:none}
+.un-go{background:var(--ink);color:var(--bg);border:1px solid var(--ink)}
+.un-go:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.un-todo{border:1px solid color-mix(in oklab,var(--warn) 45%,transparent);background:var(--warn-bg);color:var(--warn)}
 </style>
 
 <a class="skip" href="#plan">Skip to the plan</a>
@@ -470,6 +490,7 @@ body.search-open{overflow:hidden}
 <header class="top wrap">
   <p class="eyebrow"><span>24 Oct → 2 Nov 2026</span><span>Six travellers</span><span>Eight or nine nights</span><span id="when" class="when"></span></p>
   <h1>Andaman Loop</h1>
+  <aside class="upnext" id="upnext" aria-label="Up next" hidden></aside>
   <p class="lede">Fly into Port Blair, two nights on Neil, two on Havelock, back to Port Blair, fly home on 1 or 2 November. Updated 22 October with the group's latest plan.</p>
   <button class="search-btn" type="button" data-search-open><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search the trip: places, times, prices…</span><kbd>/</kbd></button>
   <ol class="loop" aria-label="Route and nights">
@@ -557,11 +578,11 @@ body.search-open{overflow:hidden}
           </summary>
           <div class="day-b">
             <ol class="tl">
-              <li><time>5:20 am</time><p>IndiGo bag drop closes at Mumbai Terminal 2. Flight 6E 802 leaves at 6:20 with all six of you. Web check-in is already open.</p></li>
-              <li><time>9:45 am</time><p>Land at <button class="pl" type="button" data-place="airport">Veer Savarkar Airport</button>. Cab to your stay, from ₹450, and get some food.</p></li>
-              <li><time>11:30 am</time><p>Boat from <button class="pl" type="button" data-place="aberdeen">Aberdeen Jetty</button> to <button class="pl" type="button" data-place="ross">Ross Island</button>, 15 minutes, about ₹370–450 return plus ₹50 entry: ruins, deer and Japanese bunkers. The last boats back leave around 3 pm.</p></li>
-              <li><time>2:15 pm</time><p><button class="pl" type="button" data-place="jail">Cellular Jail</button> museum, ₹30 each. Last tickets go around 3:15 pm.</p></li>
-              <li><time>Evening</time><p>Saturday's Light &amp; Sound Show is sold out, so you'll see it on Thu 29. Have an early dinner: five of you are up at about 3:30 am.</p></li>
+              <li><time datetime="2026-10-24T05:20">5:20 am</time><p>IndiGo bag drop closes at Mumbai Terminal 2. Flight 6E 802 leaves at 6:20 with all six of you. Web check-in is already open.</p></li>
+              <li><time datetime="2026-10-24T09:45">9:45 am</time><p>Land at <button class="pl" type="button" data-place="airport">Veer Savarkar Airport</button>. Cab to your stay, from ₹450, and get some food.</p></li>
+              <li><time datetime="2026-10-24T11:30">11:30 am</time><p>Boat from <button class="pl" type="button" data-place="aberdeen">Aberdeen Jetty</button> to <button class="pl" type="button" data-place="ross">Ross Island</button>, 15 minutes, about ₹370–450 return plus ₹50 entry: ruins, deer and Japanese bunkers. The last boats back leave around 3 pm.</p></li>
+              <li><time datetime="2026-10-24T14:15">2:15 pm</time><p><button class="pl" type="button" data-place="jail">Cellular Jail</button> museum, ₹30 each. Last tickets go around 3:15 pm.</p></li>
+              <li><time datetime="2026-10-24T18:30">Evening</time><p>Saturday's Light &amp; Sound Show is sold out, so you'll see it on Thu 29. Have an early dinner: five of you are up at about 3:30 am.</p></li>
             </ol>
             <p class="tip">Before bed, book a 3:45 am cab to <button class="pl" type="button" data-place="phoenix">Phoenix Bay Jetty</button> and set out the Aadhaar cards used for the ferry booking.</p>
             <button class="to-map" type="button">Show on map</button>
@@ -578,14 +599,14 @@ body.search-open{overflow:hidden}
           </summary>
           <div class="day-b">
             <ol class="tl">
-              <li><time>4:15 am</time><p>Priyanka, Vaishnavi, Shreyash, Sneha and Nihar at <button class="pl" type="button" data-place="phoenix">Phoenix Bay Jetty</button>. Gates close at 5:45. Each person needs the Aadhaar card used for the booking, or the fare is charged ten times over.</p></li>
-              <li><time>6:15 am</time><p>MV Wandoor sails for Neil, seat class. Government boats take 1.5–2 hours.</p></li>
-              <li><time>5:00–7:00</time><p>Manjit at the hotel, as planned.</p></li>
-              <li><time>9:00 am</time><p>Manjit at Phoenix Bay Jetty. Gates close at 10:30.</p></li>
-              <li><time>11:00 am</time><p>Manjit's MV North Passage sails, reaching <button class="pl" type="button" data-place="neiljetty">Neil jetty</button> around 12:30–1:00.</p></li>
-              <li><time>Morning</time><p>The five check in, then walk <button class="pl" type="button" data-place="bharat">Bharatpur Beach</button> next to the jetty. Visit the dive shops there and book Monday's scuba in person.</p></li>
-              <li><time>1:30 pm</time><p>All six at the <button class="pl" type="button" data-place="bridge">Natural Bridge</button>, free. Low tide is at 2:13 pm, the best timing you'll get for it. Water shoes.</p></li>
-              <li><time>4:30 pm</time><p><button class="pl" type="button" data-place="lax1">Laxmanpur Beach 1</button> for sunset at 4:55.</p></li>
+              <li><time datetime="2026-10-25T04:15">4:15 am</time><p>Priyanka, Vaishnavi, Shreyash, Sneha and Nihar at <button class="pl" type="button" data-place="phoenix">Phoenix Bay Jetty</button>. Gates close at 5:45. Each person needs the Aadhaar card used for the booking, or the fare is charged ten times over.</p></li>
+              <li><time datetime="2026-10-25T06:15">6:15 am</time><p>MV Wandoor sails for Neil, seat class. Government boats take 1.5–2 hours.</p></li>
+              <li><time datetime="2026-10-25T05:00">5:00–7:00</time><p>Manjit at the hotel, as planned.</p></li>
+              <li><time datetime="2026-10-25T09:00">9:00 am</time><p>Manjit at Phoenix Bay Jetty. Gates close at 10:30.</p></li>
+              <li><time datetime="2026-10-25T11:00">11:00 am</time><p>Manjit's MV North Passage sails, reaching <button class="pl" type="button" data-place="neiljetty">Neil jetty</button> around 12:30–1:00.</p></li>
+              <li><time datetime="2026-10-25T08:30">Morning</time><p>The five check in, then walk <button class="pl" type="button" data-place="bharat">Bharatpur Beach</button> next to the jetty. Visit the dive shops there and book Monday's scuba in person.</p></li>
+              <li><time datetime="2026-10-25T13:30">1:30 pm</time><p>All six at the <button class="pl" type="button" data-place="bridge">Natural Bridge</button>, free. Low tide is at 2:13 pm, the best timing you'll get for it. Water shoes.</p></li>
+              <li><time datetime="2026-10-25T16:30">4:30 pm</time><p><button class="pl" type="button" data-place="lax1">Laxmanpur Beach 1</button> for sunset at 4:55.</p></li>
             </ol>
             <p class="tip">Government sailing times can change, so check the DSS site or call 1800 345 2714 on Saturday evening. On Neil, Jio has no 4G; use Airtel or BSNL. Carry cash.</p>
             <button class="to-map" type="button">Show on map</button>
@@ -602,10 +623,10 @@ body.search-open{overflow:hidden}
           </summary>
           <div class="day-b">
             <ol class="tl">
-              <li><time>5:30–6 am</time><p>At the dive shop on <button class="pl" type="button" data-place="bharat">Bharatpur Beach</button>. First 1–1.5 hours of training, then about 30 minutes underwater with photos and video. Snorkelling straight after; allow 2–3 hours in all. High tide is at 8:36 am.</p></li>
+              <li><time datetime="2026-10-26T05:30">5:30–6 am</time><p>At the dive shop on <button class="pl" type="button" data-place="bharat">Bharatpur Beach</button>. First 1–1.5 hours of training, then about 30 minutes underwater with photos and video. Snorkelling straight after; allow 2–3 hours in all. High tide is at 8:36 am.</p></li>
               <li><time>Prices</time><p>From the group's calls: India's Scuba Explorer charges ₹4,500 plus tax for scuba and ₹2,500 for snorkelling, and does both the same day. Turquoise Dream charges ₹5,300 including tax and starts at 5:30 am. DiveIndia only runs a two-day course at ₹14,000.</p></li>
-              <li><time>Afternoon</time><p>Rest, then <button class="pl" type="button" data-place="ramnagar">Ramnagar Beach</button>, quiet, on the south side.</p></li>
-              <li><time>Evening</time><p>Early night. Tuesday starts with sunrise at 5:09.</p></li>
+              <li><time datetime="2026-10-26T14:00">Afternoon</time><p>Rest, then <button class="pl" type="button" data-place="ramnagar">Ramnagar Beach</button>, quiet, on the south side.</p></li>
+              <li><time datetime="2026-10-26T19:00">Evening</time><p>Early night. Tuesday starts with sunrise at 5:09.</p></li>
             </ol>
             <p class="tip">Bring a memory card or pen drive for the photos and wear dry-fit shorts under the suit. Skip diving with asthma, heart or back trouble, or if pregnant. The group decided not to send advances: pay once you've seen the shop.</p>
             <button class="to-map" type="button">Show on map</button>
@@ -622,11 +643,11 @@ body.search-open{overflow:hidden}
           </summary>
           <div class="day-b">
             <ol class="tl">
-              <li><time>5:09 am</time><p>Sunrise at <button class="pl" type="button" data-place="sitapur">Sitapur Beach</button>, about 10 minutes from the jetty by cab.</p></li>
+              <li><time datetime="2026-10-27T05:00">5:09 am</time><p>Sunrise at <button class="pl" type="button" data-place="sitapur">Sitapur Beach</button>, about 10 minutes from the jetty by cab.</p></li>
               <li><time>First choice</time><p>A government ferry straight from Shaheed Dweep to Swaraj Dweep, if the DSS site lists one for the 27th. No private boat runs this way.</p></li>
-              <li><time>9:30</time><p>Otherwise <b>Nautika</b> from <button class="pl" type="button" data-place="neiljetty">Neil jetty</button> to Port Blair, arriving 10:45 at <button class="pl" type="button" data-place="haddo">Haddo Jetty</button>. Luxury is ₹2,175 each with fees.</p></li>
-              <li><time>2:00 pm</time><p>Then <b>Makruzz Gold</b> to <button class="pl" type="button" data-place="havjetty">Havelock jetty</button>, arriving 3:30. Premium is ₹1,825–2,325 each. Backup: Green Ocean 1, 1:15 → 3:30, ₹1,400.</p></li>
-              <li><time>Evening</time><p>Dinner around <button class="pl" type="button" data-place="govind">Govind Nagar market</button>. The moon rises at 5:48 pm, too bright for the glow.</p></li>
+              <li><time datetime="2026-10-27T09:30">9:30</time><p>Otherwise <b>Nautika</b> from <button class="pl" type="button" data-place="neiljetty">Neil jetty</button> to Port Blair, arriving 10:45 at <button class="pl" type="button" data-place="haddo">Haddo Jetty</button>. Luxury is ₹2,175 each with fees.</p></li>
+              <li><time datetime="2026-10-27T14:00">2:00 pm</time><p>Then <b>Makruzz Gold</b> to <button class="pl" type="button" data-place="havjetty">Havelock jetty</button>, arriving 3:30. Premium is ₹1,825–2,325 each. Backup: Green Ocean 1, 1:15 → 3:30, ₹1,400.</p></li>
+              <li><time datetime="2026-10-27T18:30">Evening</time><p>Dinner around <button class="pl" type="button" data-place="govind">Govind Nagar market</button>. The moon rises at 5:48 pm, too bright for the glow.</p></li>
             </ol>
             <p class="tip">Don't wait too long on the government boat. Private seats on Tuesday sell out, so pick a cut-off day and book the Port Blair route if nothing appears.</p>
             <button class="to-map" type="button">Show on map</button>
@@ -643,11 +664,11 @@ body.search-open{overflow:hidden}
           </summary>
           <div class="day-b">
             <ol class="tl">
-              <li><time>9:00 am</time><p>Speedboat from <button class="pl" type="button" data-place="havjetty">Havelock jetty</button> to <button class="pl" type="button" data-place="elephant">Elephant Beach</button>, 20 minutes, ₹1,250 each return with a short snorkel. Sea walk ₹3,500–4,800, jet ski ₹600 a ride. High tide is at 9:50 am.</p></li>
-              <li><time>1:00 pm</time><p>Back at the jetty for lunch. The last boats leave the beach around 3–4 pm.</p></li>
-              <li><time>3:00 pm</time><p><button class="pl" type="button" data-place="radha">Radhanagar Beach</button> (Beach No. 7), with cabs from ₹450. Lifeguards are on duty; swim inside the nets.</p></li>
-              <li><time>4:53 pm</time><p>Sunset. The beach closes at 5 pm and everyone has to leave.</p></li>
-              <li><time>6:05 pm</time><p>Optional <b>bioluminescence kayaking</b>, ₹2,500–3,500 each. The sky is only dark until moonrise at 6:46 pm, so take the first slot after dark or skip it.</p></li>
+              <li><time datetime="2026-10-28T09:00">9:00 am</time><p>Speedboat from <button class="pl" type="button" data-place="havjetty">Havelock jetty</button> to <button class="pl" type="button" data-place="elephant">Elephant Beach</button>, 20 minutes, ₹1,250 each return with a short snorkel. Sea walk ₹3,500–4,800, jet ski ₹600 a ride. High tide is at 9:50 am.</p></li>
+              <li><time datetime="2026-10-28T13:00">1:00 pm</time><p>Back at the jetty for lunch. The last boats leave the beach around 3–4 pm.</p></li>
+              <li><time datetime="2026-10-28T15:00">3:00 pm</time><p><button class="pl" type="button" data-place="radha">Radhanagar Beach</button> (Beach No. 7), with cabs from ₹450. Lifeguards are on duty; swim inside the nets.</p></li>
+              <li><time datetime="2026-10-28T16:53">4:53 pm</time><p>Sunset. The beach closes at 5 pm and everyone has to leave.</p></li>
+              <li><time datetime="2026-10-28T18:05">6:05 pm</time><p>Optional <b>bioluminescence kayaking</b>, ₹2,500–3,500 each. The sky is only dark until moonrise at 6:46 pm, so take the first slot after dark or skip it.</p></li>
             </ol>
             <p class="tip">This is your only Havelock evening with any dark sky. The darker nights from Thu 29 fall while you're back in Port Blair.</p>
             <button class="to-map" type="button">Show on map</button>
@@ -664,11 +685,11 @@ body.search-open{overflow:hidden}
           </summary>
           <div class="day-b">
             <ol class="tl">
-              <li><time>7:00 am</time><p>At <button class="pl" type="button" data-place="havjetty">Havelock jetty</button>. Take a seasickness tablet now.</p></li>
-              <li><time>8:00</time><p><b>Makruzz</b> to Port Blair, arriving 9:30 at <button class="pl" type="button" data-place="haddo">Haddo Jetty</button>. Premium is ₹2,325 each. Backups: Makruzz Pearl at 2:00 pm or Nautika at 3:45 pm, though both make the evening tight.</p></li>
-              <li><time>Midday</time><p>Check in and rest.</p></li>
-              <li><time>4:00 pm</time><p><button class="pl" type="button" data-place="corbyn">Corbyn's Cove</button> for sunset at 4:56.</p></li>
-              <li><time>5:50 pm</time><p>Light &amp; Sound Show at the <button class="pl" type="button" data-place="jail">Cellular Jail</button>, ₹300 each. Thursday shows are at 5:50, 6:50 and 7:50, all in Hindi. Book on the <a href="https://tourism.andamannicobar.gov.in/etourist/" target="_blank" rel="noopener">official e-Tourist portal</a> now, because Saturday sold out.</p></li>
+              <li><time datetime="2026-10-29T07:00">7:00 am</time><p>At <button class="pl" type="button" data-place="havjetty">Havelock jetty</button>. Take a seasickness tablet now.</p></li>
+              <li><time datetime="2026-10-29T08:00">8:00</time><p><b>Makruzz</b> to Port Blair, arriving 9:30 at <button class="pl" type="button" data-place="haddo">Haddo Jetty</button>. Premium is ₹2,325 each. Backups: Makruzz Pearl at 2:00 pm or Nautika at 3:45 pm, though both make the evening tight.</p></li>
+              <li><time datetime="2026-10-29T12:00">Midday</time><p>Check in and rest.</p></li>
+              <li><time datetime="2026-10-29T16:00">4:00 pm</time><p><button class="pl" type="button" data-place="corbyn">Corbyn's Cove</button> for sunset at 4:56.</p></li>
+              <li><time datetime="2026-10-29T17:50">5:50 pm</time><p>Light &amp; Sound Show at the <button class="pl" type="button" data-place="jail">Cellular Jail</button>, ₹300 each. Thursday shows are at 5:50, 6:50 and 7:50, all in Hindi. Book on the <a href="https://tourism.andamannicobar.gov.in/etourist/" target="_blank" rel="noopener">official e-Tourist portal</a> now, because Saturday sold out.</p></li>
             </ol>
             <p class="tip">Want it in English? That runs at 6:50 pm on Mondays, Wednesdays and Fridays, so Fri 30 works.</p>
             <button class="to-map" type="button">Show on map</button>
@@ -685,10 +706,10 @@ body.search-open{overflow:hidden}
           </summary>
           <div class="day-b">
             <ol class="tl">
-              <li><time>8:30 am</time><p>Boats from <button class="pl" type="button" data-place="aberdeen">Aberdeen Jetty</button>. If you saw Ross Island on Saturday, take North Bay only; otherwise the Ross + North Bay combo, about ₹750 each at the counter.</p></li>
-              <li><time>Midday</time><p><button class="pl" type="button" data-place="northbay">North Bay</button>: snorkelling ₹500–1,000, glass-bottom boat, or a sea walk for ₹3,000–3,500. High tide is at 11:14 am.</p></li>
-              <li><time>3:45 pm</time><p>Drive south to <button class="pl" type="button" data-place="chidiya">Chidiya Tapu</button> for sunset at 4:55.</p></li>
-              <li><time>Evening</time><p>The English Light &amp; Sound Show runs at 6:50 pm on Fridays. Or take the 7 pm dinner cruise from <button class="pl" type="button" data-place="phoenix">Phoenix Bay Jetty</button>, ₹2,500–3,950.</p></li>
+              <li><time datetime="2026-10-30T08:30">8:30 am</time><p>Boats from <button class="pl" type="button" data-place="aberdeen">Aberdeen Jetty</button>. If you saw Ross Island on Saturday, take North Bay only; otherwise the Ross + North Bay combo, about ₹750 each at the counter.</p></li>
+              <li><time datetime="2026-10-30T11:30">Midday</time><p><button class="pl" type="button" data-place="northbay">North Bay</button>: snorkelling ₹500–1,000, glass-bottom boat, or a sea walk for ₹3,000–3,500. High tide is at 11:14 am.</p></li>
+              <li><time datetime="2026-10-30T15:45">3:45 pm</time><p>Drive south to <button class="pl" type="button" data-place="chidiya">Chidiya Tapu</button> for sunset at 4:55.</p></li>
+              <li><time datetime="2026-10-30T18:30">Evening</time><p>The English Light &amp; Sound Show runs at 6:50 pm on Fridays. Or take the 7 pm dinner cruise from <button class="pl" type="button" data-place="phoenix">Phoenix Bay Jetty</button>, ₹2,500–3,950.</p></li>
             </ol>
             <button class="to-map" type="button">Show on map</button>
           </div>
@@ -704,13 +725,13 @@ body.search-open{overflow:hidden}
           </summary>
           <div class="day-b">
             <ol class="tl">
-              <li><time>3:45 am</time><p>Leave in a private SUV with a driver for all six, about ₹4,500–6,000 for the day. Book it on Friday.</p></li>
-              <li><time>~5:15</time><p>Register the vehicle at <button class="pl" type="button" data-place="jirkatang">Jirkatang check post</button> for the 6:00 convoy. Published convoys leave at 6:00, 9:00, 12:30 and 3:30.</p></li>
-              <li><time>6:00</time><p>Convoy through the Jarawa reserve, about 1 h 15 min. No stopping, no photos or video, windows up.</p></li>
-              <li><time>~7:30</time><p>Vehicle ferry from <button class="pl" type="button" data-place="midstrait">Middle Strait</button> to <button class="pl" type="button" data-place="nilambur">Nilambur jetty</button>. Buy the cave permit and speedboat there: ₹800–900 each, or about ₹5,500 for a whole boat.</p></li>
-              <li><time>8:00</time><p>A 25-minute speedboat through mangrove creeks, then a 1.2 km walk to the <button class="pl" type="button" data-place="cave">Limestone Caves</button>. Shoes with grip, a torch and repellent.</p></li>
-              <li><time>~10:30</time><p>The <button class="pl" type="button" data-place="mud">Mud Volcano</button> by jeep, ₹100 each or ₹400 a jeep. It's small bubbling mounds, so keep it short.</p></li>
-              <li><time>12:00</time><p>Return convoy from Middle Strait (published 12:00, 2:00 and 4:00 pm). Back in Port Blair around 3:30 pm.</p></li>
+              <li><time datetime="2026-10-31T03:45">3:45 am</time><p>Leave in a private SUV with a driver for all six, about ₹4,500–6,000 for the day. Book it on Friday.</p></li>
+              <li><time datetime="2026-10-31T05:15">~5:15</time><p>Register the vehicle at <button class="pl" type="button" data-place="jirkatang">Jirkatang check post</button> for the 6:00 convoy. Published convoys leave at 6:00, 9:00, 12:30 and 3:30.</p></li>
+              <li><time datetime="2026-10-31T06:00">6:00</time><p>Convoy through the Jarawa reserve, about 1 h 15 min. No stopping, no photos or video, windows up.</p></li>
+              <li><time datetime="2026-10-31T07:30">~7:30</time><p>Vehicle ferry from <button class="pl" type="button" data-place="midstrait">Middle Strait</button> to <button class="pl" type="button" data-place="nilambur">Nilambur jetty</button>. Buy the cave permit and speedboat there: ₹800–900 each, or about ₹5,500 for a whole boat.</p></li>
+              <li><time datetime="2026-10-31T08:00">8:00</time><p>A 25-minute speedboat through mangrove creeks, then a 1.2 km walk to the <button class="pl" type="button" data-place="cave">Limestone Caves</button>. Shoes with grip, a torch and repellent.</p></li>
+              <li><time datetime="2026-10-31T10:30">~10:30</time><p>The <button class="pl" type="button" data-place="mud">Mud Volcano</button> by jeep, ₹100 each or ₹400 a jeep. It's small bubbling mounds, so keep it short.</p></li>
+              <li><time datetime="2026-10-31T12:00">12:00</time><p>Return convoy from Middle Strait (published 12:00, 2:00 and 4:00 pm). Back in Port Blair around 3:30 pm.</p></li>
             </ol>
             <p class="tip"><b>Thinking of somewhere further?</b> Merk Bay is reached via Long Island, and the government ferry there sails about three times a week, so it needs a night away; check DSS for Sat 31 and a way back. Ross &amp; Smith islands are near Diglipur, 10+ hours north, not Ross Island in Port Blair, and need 2–3 days.</p>
             <button class="to-map" type="button">Show on map</button>
@@ -727,9 +748,9 @@ body.search-open{overflow:hidden}
           </summary>
           <div class="day-b">
             <ol class="tl">
-              <li><time>10:00 am</time><p>Shreyash and Nihar at <button class="pl" type="button" data-place="airport">the airport</button>; check-in closes at 11:00. IndiGo 6E 5170 leaves at 12:00 and lands at Mumbai T1 at 3:20 pm.</p></li>
-              <li><time>Daytime</time><p>For the other four: souvenirs at <button class="pl" type="button" data-place="aberdeenbazaar">Aberdeen Bazaar</button> and <button class="pl" type="button" data-place="sagarika">Sagarika Emporium</button>, and the Cellular Jail museum if you missed it (it's shut on Mondays).</p></li>
-              <li><time>4:00 pm</time><p>A last sunset at <button class="pl" type="button" data-place="corbyn">Corbyn's Cove</button>, 4:53 pm.</p></li>
+              <li><time datetime="2026-11-01T10:00">10:00 am</time><p>Shreyash and Nihar at <button class="pl" type="button" data-place="airport">the airport</button>; check-in closes at 11:00. IndiGo 6E 5170 leaves at 12:00 and lands at Mumbai T1 at 3:20 pm.</p></li>
+              <li><time datetime="2026-11-01T12:30">Daytime</time><p>For the other four: souvenirs at <button class="pl" type="button" data-place="aberdeenbazaar">Aberdeen Bazaar</button> and <button class="pl" type="button" data-place="sagarika">Sagarika Emporium</button>, and the Cellular Jail museum if you missed it (it's shut on Mondays).</p></li>
+              <li><time datetime="2026-11-01T16:00">4:00 pm</time><p>A last sunset at <button class="pl" type="button" data-place="corbyn">Corbyn's Cove</button>, 4:53 pm.</p></li>
             </ol>
             <button class="to-map" type="button">Show on map</button>
           </div>
@@ -745,9 +766,9 @@ body.search-open{overflow:hidden}
           </summary>
           <div class="day-b">
             <ol class="tl">
-              <li><time>Morning</time><p>Pack and check out. The Cellular Jail is closed on Mondays.</p></li>
-              <li><time>1:00 pm</time><p>At <button class="pl" type="button" data-place="airport">the airport</button> if you take the 3:00 pm flight; check-in closes at 2:00.</p></li>
-              <li><time>3:00 pm</time><p>IndiGo via Bangalore, landing in Pune at 11:45 pm, for Manjit, Priyanka, Sneha and Vaishnavi. <b>Not booked yet.</b> It was ₹11,800 on the morning of 22 Oct and ₹14,500–15,500 by evening, so book all four on the same flight soon.</p></li>
+              <li><time datetime="2026-11-02T09:00">Morning</time><p>Pack and check out. The Cellular Jail is closed on Mondays.</p></li>
+              <li><time datetime="2026-11-02T13:00">1:00 pm</time><p>At <button class="pl" type="button" data-place="airport">the airport</button> if you take the 3:00 pm flight; check-in closes at 2:00.</p></li>
+              <li><time datetime="2026-11-02T15:00">3:00 pm</time><p>IndiGo via Bangalore, landing in Pune at 11:45 pm, for Manjit, Priyanka, Sneha and Vaishnavi. <b>Not booked yet.</b> It was ₹11,800 on the morning of 22 Oct and ₹14,500–15,500 by evening, so book all four on the same flight soon.</p></li>
             </ol>
             <button class="to-map" type="button">Show on map</button>
           </div>
@@ -1714,7 +1735,7 @@ const textOf = el => {
     if (n.nodeType !== 1 || /^(SCRIPT|STYLE|SVG)$/i.test(n.tagName)) return;
     for (const c of n.childNodes) walk(c);
     if (n.tagName === 'TIME') parts.push(' · ');
-    else if (!/^(B|A|SPAN|I|EM|STRONG|MARK)$/.test(n.tagName)) parts.push(' ');
+    else if (!/^(B|A|SPAN|I|EM|STRONG|MARK|BUTTON)$/.test(n.tagName)) parts.push(' ');
   })(el);
   return clean(parts.join(''));
 };
@@ -1822,6 +1843,51 @@ document.addEventListener('keydown', e => {
   if (e.key === '/' || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) { e.preventDefault(); openSearch(); }
 });
 
+
+/* ---------- up next: the next timed entry in the plan, from the clock (IST) ---------- */
+const upEl = $('#upnext');
+const events = $$('.tl time[datetime]').map(t => ({
+  at: Date.parse(t.getAttribute('datetime') + ':00+05:30'),
+  li: t.closest('li'), day: t.closest('.day'),
+  when: clean(t.textContent), text: textOf(t.closest('li').querySelector('p'))
+})).filter(e => !isNaN(e.at)).sort((a, b) => a.at - b.at);
+const dayName = e => clean(e.day.querySelector('.day-date').textContent);
+const firstSentence = s => { const m = s.match(/^.*?[.!?](?=\s|$)/); return m ? m[0] : s; };
+const rel = ms => {
+  const m = Math.round(ms / 60000);
+  if (m < 1) return 'starting now';
+  if (m < 60) return 'in ' + m + ' min';
+  const hr = Math.floor(m / 60), mm = m % 60;
+  if (hr < 24) return 'in ' + hr + ' h' + (mm ? ' ' + mm + ' min' : '');
+  const d = Math.floor(hr / 24), hh = hr % 24;
+  return 'in ' + d + (d === 1 ? ' day' : ' days') + (hh ? ' ' + hh + ' h' : '');
+};
+function renderUpNext() {
+  const now = Date.now(), i = events.findIndex(e => e.at > now);
+  if (i < 0) { upEl.hidden = true; return; }
+  const e = events[i];
+  const then = events.slice(i + 1, i + 4).map((x, k) => {
+    const label = (x.day === e.day ? '' : dayName(x) + ' · ') + x.when;
+    return '<li><button type="button" data-ev="' + (i + 1 + k) + '"><time>' + esc(label) + '</time><span>' + esc(firstSentence(x.text)) + '</span></button></li>';
+  }).join('');
+  const todo = $$('#tickets .pack input').filter(c => !c.checked).length;
+  upEl.innerHTML =
+    '<div class="un-head"><span class="un-tag">Up next</span><span class="un-rel">' + rel(e.at - now) + '</span></div>' +
+    '<p class="un-when">' + esc(dayName(e)) + ' <span>· ' + esc(e.when) + '</span></p>' +
+    '<p class="un-text">' + esc(e.text) + '</p>' +
+    (then ? '<ol class="un-then">' + then + '</ol>' : '') +
+    '<div class="un-actions"><button type="button" class="un-go" data-ev="' + i + '">Show in plan</button>' +
+    (todo ? '<a class="un-todo" href="#tickets">' + todo + ' still to book</a>' : '') + '</div>';
+  upEl.hidden = false;
+}
+upEl.addEventListener('click', e => {
+  const b = e.target.closest('[data-ev]');
+  if (b) goTo({ kind: 'el', el: events[+b.dataset.ev].li });
+});
+$$('#tickets .pack input').forEach(c => c.addEventListener('change', renderUpNext));
+renderUpNext();
+setInterval(renderUpNext, 30000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) renderUpNext(); });
 })();
 </script>
 </html>
